@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 245px;
+            height: 300px;
+            margin: auto;
+        }
+        #result{
+            background: #2c3e50;
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+        }
+        #resultInner{
+            display: block;
+            margin: 10px auto;
+            background: white;
+            width: 225px;
+            height: 40px;
+            color: black;
+            font-size: 30px;
+        }
+        #numbers{
+            background: whitesmoke;
+            width: 185px;
+            height: 235px;
+            float:left;
+        }
+        #numbers .number{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background: white;
+            border-radius: 4px;
+            margin: 4px;
+        }
+        #operators{
+            background: whitesmoke;
+            width: 60px;
+            height: 235px;
+            float: right;
+        }
+        #operators .operator{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background: white;
+            border-radius: 4px;
+            margin: 4px;
+        }
+        #resultOperators{
+            background: whitesmoke;
+        }
+        #resultOperators .resultOperator{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            background: white;
+            border-radius: 4px;
+            margin: 4px;
+        }
+        .clear{
+            clear:both;
+        }
+        #equation{
+            width: 173px !important;
+        }
+        #zero{
+            width: 112px !important;
+        }
+        .Bilgilerim{
+            text-align: center;
+            border: black solid 3px;
+            margin-Top: 20px;
+            border-radius: 5px;
+            background: black;
+            color: white;
+        }
+    </style>
+    <script>
+        const formatter = new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 2,      
+        maximumFractionDigits: 2,
+        });
+
+        window.onload = function(){
+
+            var selectOperator = "";
+            var firstNumber = "";
+            var secondNumber = "";
+
+            var numbers = document.querySelectorAll(".number");
+            for(var i=0; i< numbers.length; i++){
+                numbers[i].addEventListener("click", function(){
+                    document.getElementById("resultInner").innerHTML += this.value;
+                    if(selectOperator == ""){
+                        firstNumber += this.value;
+                    }
+                    else if(selectOperator != ""){
+                        secondNumber += this.value;
+                    }
+                },false)
+            }
+            var operators = document.querySelectorAll(".operator");
+                for(var i=0; i< operators.length; i++){
+                    operators[i].addEventListener("click", function(){
+                        document.getElementById("resultInner").innerHTML += this.value;
+                        selectOperator = this.value;
+                    },false)
+                }
+
+            document.querySelector("#equation").addEventListener("click",function(){
+                if(selectOperator == "+"){
+                    document.getElementById("resultInner").innerHTML = parseInt(firstNumber) + parseInt(secondNumber);
+                }
+                else if(selectOperator == "-"){
+                    document.getElementById("resultInner").innerHTML = parseInt(firstNumber) - parseInt(secondNumber);
+                }
+                else if(selectOperator == "*"){
+                    document.getElementById("resultInner").innerHTML = parseInt(firstNumber) * parseInt(secondNumber);
+                }
+                else if(selectOperator == "/"){
+                    document.getElementById("resultInner").innerHTML = formatter.format(parseInt(firstNumber) / parseInt(secondNumber));
+                }
+            },false);
+            document.querySelector("#delete").addEventListener("click",function(){
+                selectOperator = "";
+                firstNumber = "";
+                secondNumber = "";
+                document.getElementById("resultInner").innerHTML = "";
+            },false);
+            
+            
+        };
+    </script>
+
+
+</head>
+<body>
+    <div id="main">
+        <h1>Hesap Makinesi</h1>
+        <div id="result">
+            <div id="resultInner">
+
+            </div>
+        </div>
+        <div id="numbers">
+            <button value="7" class="number">7</button>
+            <button value="8" class="number">8</button>
+            <button value="9" class="number">9</button>
+            <button value="4" class="number">4</button>
+            <button value="5" class="number">5</button>
+            <button value="6" class="number">6</button>
+            <button value="1" class="number">1</button>
+            <button value="2" class="number">2</button>
+            <button value="3" class="number">3</button>
+            <button value="0" class="number" id = "zero">0</button>
+            <button id="dot" class="number">.</button>
+        </div>
+        <div id="operators">
+            <button value="+" class="operator">+</button>
+            <button value="-" class="operator">-</button>
+            <button value="*" class="operator">x</button>
+            <button value="/" class="operator">/</button>
+        </div>
+        <div class="clear"></div>
+        <div id="resultOperators">
+            <button class="resultOperator" id="equation">=</button>
+            <button class="resultOperator" id="delete">c</button>
+        </div>
+        <div class="Bilgilerim">
+            <p>190601030</p>
+            <p>Nihat Kerem Bora</p>
+            <p>Bil209-Web Tabanli Programlama</p>
+        </div>
+    </div>
+</body>
+</html>

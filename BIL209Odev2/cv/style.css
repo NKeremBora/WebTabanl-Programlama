@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    list-style: none;
+}
+
+.main-content{
+    min-height: 100vh;
+    width: 71%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+.left-section{
+    grid-column: span 2;
+    height: 100%;
+    background-color: #00324A;
+}
+.right-section{
+    grid-column: span 5;
+    background-color: #f7f7f7;
+    height: 100%;
+}
+
+.left-content{
+    padding: 1rem 2rem;
+}
+.profile{
+    width: 100%;
+    text-align : center;
+}
+.profile img{
+    width: 200px;
+    border-radius: 50%;
+    border: 8px solid #002333 ;
+    margin-bottom: 1rem;
+}
+.name{
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+.career{
+    font-size: 1.3rem;
+    color: lightblue;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+.main-title{
+    font-size: 1.3rem;
+    border-bottom: solid white 1px;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 0.7rem;
+
+}
+
+.contact-info{
+    margin-bottom: 1rem;
+}
+.contact-info ul{
+    padding: .5rem 0;
+}
+.contact-info ul li{
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    color: white ;
+}
+.contact-info ul li i{
+    margin-right: .5rem;
+    font-size: 1.1rem;
+    color: lightblue;
+}
+.skills-section ul{
+    padding-left: 0;
+}
+.skills-section ul li{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: .3rem;
+}
+
+.progress-bar{
+    height: 7px;
+    border-radius:12px;
+}
+.progress{
+    margin-top: .4rem;
+    height: 7px !important;
+    border-radius: 12px !important;
+}
+
+.skill-title{
+    color: white;
+    font-size: 0.9rem;
+}
+.right-main-content{
+    margin: 2rem 3rem;
+}
+
+.right-title{
+    color: #2f80ED;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.right-title::after{
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: .2rem;
+    background-color: #2D9CDB;
+    border-radius: 12px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+.timeline{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.tl-content{
+    border-left: solid 1px #ccc;
+    padding-left: 2rem;
+    position: relative;
+
+}
+
